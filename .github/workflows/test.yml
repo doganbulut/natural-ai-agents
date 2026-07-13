@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  format-check:
+    name: Markdown format check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check markdown files exist
+        run: |
+          for f in skills/ai-agent-design-principles/SKILL.md \
+                   skills/ai-agent-design-principles/translations/tr/SKILL.md \
+                   docs/PRINCIPLES.md docs/METHODOLOGY.md docs/EXAMPLES.md \
+                   README.md README.tr.md; do
+            if [ ! -f "$f" ]; then
+              echo "MISSING: $f"
+              exit 1
+            fi
+            echo "OK: $f ($(wc -c < "$f") bytes)"
+          done
+
+  frontmatter-check:
+    name: Frontmatter validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate skill frontmatter
+        run: |
+          for f in skills/ai-agent-design-principles/SKILL.md \
+                   skills/ai-agent-design-principles/translations/tr/SKILL.md; do
+            if ! head -5 "$f" | grep -q "^description:"; then
+              echo "MISSING description in frontmatter: $f"
+              exit 1
+            fi
+            echo "OK: $f has frontmatter"
+          done
+
+  forbidden-phrases:
+    name: Ban forbidden phrasing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for banned phrases
+        run: |
+          # These phrases should NOT appear in the skill files
+          BANNED=(
+            "battle-tested"
+            "Production-tested"
+            "production-tested"
+            "leaked AI system prompts"
+          )
+          for phrase in "${BANNED[@]}"; do
+            for f in README.md README.tr.md \
+                     skills/ai-agent-design-principles/SKILL.md; do
+              if grep -qi "$phrase" "$f" 2>/dev/null; then
+                echo "FOUND BANNED PHRASE '$phrase' in $f"
+                exit 1
+              fi
+            done
+          done
+          echo "All banned-phrase checks passed"
+
+  broken-links:
+    name: Check internal links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify internal markdown links resolve
+        run: |
+          cd skills/ai-agent-design-principles
+          # Check SKILL.md references resolve
+          grep -oP '(?<=\()[^)]+\.md(?=\))' SKILL.md | while read -r link; do
+            # Skip external URLs
+            case "$link" in
+              http*|https*) continue ;;
+            esac
+            resolved="$link"
+            # Handle relative from SKILL.md location
+            case "$link" in
+              ../docs/*) resolved="../../docs/${link#../docs/}" ;;
+              references/*) resolved="references/${link#references/}" ;;
+            esac
+            if [ ! -f "$resolved" ] && [ ! -f "../../$resolved" ]; then
+              echo "BROKEN LINK: $link (resolved: $resolved)"
+              echo "  File: skills/ai-agent-design-principles/SKILL.md"
+              exit 1
+            fi
+            echo "OK: $link"
+          done

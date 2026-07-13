@@ -1,6 +1,6 @@
 # Yapay Zeka Ajanı Tasarım Prensipleri
 
-> Doğal, zeki ve güvenilir hissettiren yapay zeka ajanları oluşturmak için üretim ortamında test edilmiş prensipler.
+> Üretim düzeyindeki yapay zeka sistem istemlerinin analizinden türetilmiş, doğal, zeki ve güvenilir hissettiren ajanlar oluşturmak için prensipler.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Agent Skill](https://img.shields.io/badge/Agent-Skill-blue.svg)](https://agentskills.io)
@@ -21,7 +21,7 @@
 
 ## Bu nedir?
 
-Yapay zeka ajanlarının iletişimi, bağlam yönetimi ve kullanıcı etkileşimi tasarımı için **savaşta test edilmiş prensipleri** yakalayan kapsamlı, açık kaynaklı bir yetenek (tekrar kullanılabilir ajan talimat seti). Üretim düzeyindeki yapay zeka sistem istemlerinin (system prompts) derinlemesine analizinden elde edilmiştir.
+Yapay zeka ajanlarının iletişimi, bağlam yönetimi ve kullanıcı etkileşimi tasarımı için **üretim analizinden türetilmiş prensipleri** yakalayan kapsamlı, açık kaynaklı bir yetenek (tekrar kullanılabilir ajan talimat seti). Üretim düzeyindeki yapay zeka sistem istemlerinin (system prompts) derinlemesine analizinden elde edilmiştir.
 
 **Temel içgörü:** Sıradan bir yapay zeka ajanı ile harika bir ajan arasındaki fark yetenek değil, *ölçülülüktür* (restraint). Ne zaman formatlamayacağını, ne zaman kişiselleştirmeyeceğini, ne zaman aşırı açıklama yapmayacağını bilmek etkileşimlerin insani hissettirmesini sağlar.
 
@@ -112,6 +112,7 @@ with open("skills/ai-agent-design-principles/translations/tr/SKILL.md") as f:
 │
 └── docs/
     ├── METHODOLOGY.md                 # Prensiplerin nasıl türetildiği
+    ├── PRINCIPLES.md                  # Örnekler ve kültürel notlarla birlikte tam prensipler
     └── EXAMPLES.md                    # Gerçek dünya uygulama örnekleri
 ```
 

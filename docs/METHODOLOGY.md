@@ -1,6 +1,6 @@
 # Methodology
 
-> **Disclosure:** The principles in this project were derived from analysis of publicly available leaked AI system prompts. See [ETHICS.md](../ETHICS.md) for the full ethical disclosure and fair use position.
+> **Disclosure:** The principles in this project were derived from analysis of publicly available AI system prompts (including leaked prompts that entered the public domain). See [ETHICS.md](../ETHICS.md) for the full ethical disclosure and fair use position.
 
 ## How These Principles Were Derived
 
@@ -62,7 +62,7 @@ Principles were validated by checking:
 
 ## Limitations
 
-1. **Sample bias** — Analysis limited to available leaked/published prompts
+1. **Sample bias** — Analysis limited to available published/disclosed prompts
 2. **English-centric** — Most source material is in English; cross-cultural applicability needs validation
 3. **Consumer-focused** — Principles derived from consumer AI products; enterprise contexts may differ
 4. **Point-in-time** — AI interaction patterns evolve rapidly; principles need regular review

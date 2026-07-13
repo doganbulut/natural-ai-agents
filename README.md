@@ -1,6 +1,6 @@
 # AI Agent Design Principles
 
-> Production-tested principles for building AI agents that feel natural, intelligent, and trustworthy.
+> Principles derived from analysis of production-grade AI system prompts for building agents that feel natural, intelligent, and trustworthy.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Agent Skill](https://img.shields.io/badge/Agent-Skill-blue.svg)](https://agentskills.io)
@@ -21,7 +21,7 @@
 
 ## What is this?
 
-A comprehensive, open-source skill (reusable agent instruction set) that captures **battle-tested principles** for AI agent communication, context management, and user interaction design. Derived from deep analysis of production-grade AI system prompts.
+A comprehensive, open-source skill (reusable agent instruction set) that captures **production-derived principles** for AI agent communication, context management, and user interaction design. Derived from deep analysis of production-grade AI system prompts.
 
 **The core insight:** The difference between a mediocre AI agent and a great one is not capability — it's *restraint*. Knowing when NOT to format, NOT to personalize, NOT to over-explain is what makes interactions feel human.
 
@@ -104,6 +104,9 @@ with open("skills/ai-agent-design-principles/SKILL.md") as f:
 ├── skills/
 │   └── ai-agent-design-principles/
 │       ├── SKILL.md                   # Main skill document (start here)
+│       ├── translations/
+│       │   └── tr/
+│       │       └── SKILL.md           # Turkish translation
 │       └── references/
 │           ├── fable5-prompt-analysis.md         # Source analysis
 │           ├── preference-application-examples.md # When to apply/skip preferences
@@ -111,6 +114,8 @@ with open("skills/ai-agent-design-principles/SKILL.md") as f:
 │
 └── docs/
     ├── METHODOLOGY.md                 # How principles were derived
+    ├── PRINCIPLES.md                  # Full principles with examples and cultural notes
+    ├── CROSS-MODEL-COMPARISON.md      # GPT-4o and Gemini architecture comparison
     └── EXAMPLES.md                    # Real-world application examples
 ```
 
@@ -141,12 +146,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. We welcome:
 
 ## Methodology
 
-These principles were derived through systematic analysis of production-grade AI system prompts. The methodology involves:
+These principles were derived through systematic analysis of production-grade AI system prompts (primarily Anthropic Claude). The methodology involves:
 
 1. **Source Analysis** — Studying the architecture of shipping system prompts
 2. **Pattern Extraction** — Identifying recurring design patterns and anti-patterns
 3. **Generalization** — Abstracting platform-specific rules into universal principles
 4. **Validation** — Testing principles across different AI agent contexts
+
+**Note:** This skill currently draws primarily from a single model family. See [docs/CROSS-MODEL-COMPARISON.md](docs/CROSS-MODEL-COMPARISON.md) for a comparison of Claude, GPT-4o, and Gemini prompt architectures — and how universal vs. provider-specific each principle may be.
 
 See [docs/METHODOLOGY.md](docs/METHODOLOGY.md) for the full methodology.
 
