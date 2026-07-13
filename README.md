@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Agent Skill](https://img.shields.io/badge/Agent-Skill-blue.svg)](https://agentskills.io)
 
+🌍 **[Türkçe dokümantasyon için tıklayın (Turkish Documentation)](README.tr.md)**
+
 ## Table of Contents
 - [What is this?](#what-is-this)
 - [Who is this for?](#who-is-this-for)
